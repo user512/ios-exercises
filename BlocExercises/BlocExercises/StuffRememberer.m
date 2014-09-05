@@ -8,33 +8,43 @@
 
 #import "StuffRememberer.h"
 
+@interface StuffRememberer ()                    //I tried to put this @interface to @end part
+                                                 //in the header, but it doesnt work.
+@property (nonatomic, strong) NSMutableArray *arrayRemember;
+@property (nonatomic, copy) NSMutableArray *arrayCopy;
+@property (nonatomic, assign) CGFloat floatRemember;
+@end
+
 @implementation StuffRememberer
 
 - (void) rememberThisArrayForLater:(NSMutableArray *)arrayToRemember {
     /* WORK HERE */
+    self.arrayRemember = arrayToRemember;      //What does self. do?
 }
 
 - (void) copyThisArrayForLater:(NSMutableArray *)arrayToRemember {
     /* WORK HERE */
+    self.arrayCopy = arrayToRemember;
 }
 
 - (void) rememberThisFloatForLater:(CGFloat)floatToRemember {
     /* WORK HERE */
+    self.floatRemember = floatToRemember;
 }
 
 - (NSMutableArray *) arrayYouShouldRemember {
     /* WORK HERE */
-    return [@[] mutableCopy];
+    return self.arrayRemember;
 }
 
 - (NSMutableArray *) arrayYouShouldCopy {
     /* WORK HERE */
-    return [@[] mutableCopy];
+    return self.arrayCopy;
 }
 
 - (CGFloat) floatYouShouldRemember {
     /* WORK HERE */
-    return 0.0f;
+    return self.floatRemember;
 }
 
 @end
